@@ -15,6 +15,28 @@ class Product {
 }
 
 public class EcommerceSearch {
+    public static void main(String[] args) {
+        Product[] products = {
+            new Product(102, "Smartphone", "Electronics"),
+            new Product(204, "Bookshelf", "Furniture"),
+            new Product(146, "Tennis Racket", "Sports"),
+            new Product(308, "Blender", "Home Appliances")
+        };
+
+        Product[] sortedProducts = {
+            new Product(102, "Smartphone", "Electronics"),
+            new Product(146, "Tennis Racket", "Sports"),
+            new Product(204, "Bookshelf", "Furniture"),
+            new Product(308, "Blender", "Home Appliances")
+        };
+
+        Product linearResult = linearSearch(products, 146);
+        System.out.println("Linear Search: " + (linearResult != null ? "Found" : "Not Found"));
+
+        Product binaryResult = binarySearch(sortedProducts, 204, 0, sortedProducts.length);
+        System.out.println("Binary Search: " + (binaryResult != null ? "Found" : "Not Found"));
+    }
+
     public static Product linearSearch(Product[] products, int targetId) {
         for (Product product : products) {
             if (product.getProductId() == targetId) {
@@ -38,28 +60,5 @@ public class EcommerceSearch {
             return binarySearch(sortedProducts, targetId, low, mid - 1);
         }
     }
-
-    public static void main(String[] args) {
-        Product[] products = {
-            new Product(101, "Laptop", "Electronics"),
-            new Product(203, "Desk Chair", "Furniture"),
-            new Product(145, "Running Shoes", "Sports"),
-            new Product(307, "Coffee Maker", "Home Appliances")
-        };
-
-        Product[] sortedProducts = {
-            new Product(101, "Laptop", "Electronics"),
-            new Product(145, "Running Shoes", "Sports"),
-            new Product(203, "Desk Chair", "Furniture"),
-            new Product(307, "Coffee Maker", "Home Appliances")
-        };
-
-        Product linearResult = linearSearch(products, 145);
-        System.out.println("Linear Search: " + 
-            (linearResult != null ? "Found" : "Not Found"));
-
-        Product binaryResult = binarySearch(sortedProducts, 203, 0, sortedProducts.length);
-        System.out.println("Binary Search: " + 
-            (binaryResult != null ? "Found" : "Not Found"));
-    }
+    
 }

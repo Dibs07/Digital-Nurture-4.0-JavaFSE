@@ -1,17 +1,17 @@
 public class FinancialForecasting {
-    private static double calculateFutureValue(double presentValue, double rate, int periods) {
-        if (periods == 0) {
-            return presentValue;
-        }
-        return (1 + rate) * calculateFutureValue(presentValue, rate, periods - 1);
+    
+    public static void main(String[] args) {
+        double initial = 500.0;
+        double growthRate = 0.06;
+        int years = 8;
+        System.out.printf("Future value after %d years: $%.2f", years, calculateval(initial, growthRate, years));
     }
 
-    public static void main(String[] args) {
-        double initialValue = 1000.0;
-        double growthRate = 0.05;
-        int years = 10;
-        
-        double futureValue = calculateFutureValue(initialValue, growthRate, years);
-        System.out.printf("Future value after %d years: $%.2f", years, futureValue);
+    private static double calculateval(double presentValue, double rate, int per) {
+        if (per == 0) {
+            return presentValue;
+        }
+        return (1 + rate) * calculateval(presentValue, rate, per - 1);
     }
+
 }
