@@ -1,3 +1,15 @@
+public class SingletonPattern {
+    public static void main(String[] args) {
+        Logger firstLogger = Logger.getInstance();
+        Logger secondLogger = Logger.getInstance();
+
+        if (firstLogger == secondLogger) {
+            System.out.println("Both references point to the same Logger instance.");
+        } else {
+            System.out.println("References point to different Logger instances.");
+        }
+    }
+}
 class Logger {
     private static Logger instance;
 
@@ -12,15 +24,3 @@ class Logger {
     }
 }
 
-public class SingletonPattern {
-    public static void main(String[] args) {
-        Logger firstLogger = Logger.getInstance();
-        Logger secondLogger = Logger.getInstance();
-
-        if (firstLogger == secondLogger) {
-            System.out.println("Both references point to the same Logger instance.");
-        } else {
-            System.out.println("References point to different Logger instances.");
-        }
-    }
-}
